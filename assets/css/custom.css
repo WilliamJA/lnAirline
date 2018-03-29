@@ -1,0 +1,27 @@
+
+.airport {
+    color: #FF21FF;
+}
+.part-date {
+    color: #4168AE;
+}
+.real-date {
+    color: #FF2A2A;
+}
+.expected-date {
+    color: #1E8F1E;
+}
+.price {
+    color: #F40B0B;
+}
+
+.form-border {
+    border: 1px solid #eee;
+}
+
+.control-first {
+    margin-top: 20px;
+}
+.margin-bottom {
+    margin-bottom: 0;
+}

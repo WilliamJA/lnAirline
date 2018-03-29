@@ -1,0 +1,131 @@
+
+<style>
+    .route-result{
+        padding: 10px;
+        border: 1px solid #eee;
+        margin-top: 10px;
+    }
+    .form-footer {
+        text-align: center;
+        padding-bottom: 10px;
+    }
+
+
+</style>
+
+
+<div class="portlet box red">
+    <div class="portlet-title">
+        <div class="caption"><i class="icon-globe"></i>飞行航路</div>
+        <div class="tools">
+            <a href="javascript:;" class="collapse"></a>
+        </div>
+    </div>
+
+    <div class="portlet-body">
+        <form action="" class="form-horizontal form-border">
+
+            <div class="control-group control-first">
+                <label class="control-label">航路代码<span class="required">*</span></label>
+                <div class="controls">
+                    <input autocomplete="off" type="text" name="name" data-required="1" class="span6 lager m-wrap">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">起飞机场</label>
+                <div class="controls">
+                    <select class="small m-wrap" tabindex="1">
+                        <option value="Category 1">ZBAA</option>
+                        <option value="Category 2">ZGGG</option>
+                        <option value="Category 3">ZUUU</option>
+                        <option value="Category 4">VHHH</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">到达机场</label>
+                <div class="controls">
+                    <select class="small m-wrap" tabindex="1">
+                        <option value="Category 1">ZBAA</option>
+                        <option value="Category 2">ZGGG</option>
+                        <option value="Category 3">ZUUU</option>
+                        <option value="Category 4">VHHH</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">选择状态</label>
+                <div class="controls">
+                    <label class="radio">
+                        <div class="radio"><span><input type="radio" name="optionsRadios1" value="option1"></span></div>
+                        已生效
+                    </label>
+                    <label class="radio">
+                        <div class="radio"><span class="checked"><input type="radio" name="optionsRadios1" value="option2" checked=""></span></div>
+                        未生效
+                    </label>
+                    <label class="radio">
+                        <div class="radio"><span><input type="radio" name="optionsRadios1" value="option2"></span></div>
+                        全部
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-footer">
+                <button type="submit" class="btn red"><i class="icon-search"></i> 查询</button>
+                <button type="button" class="btn"><i class="icon-undo"></i>清空</button>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+<div class="portlet box yellow">
+    <div class="portlet-title">
+        <div class="caption"><i class=" icon-table"></i>查询结果</div>
+        <div class="tools">
+            <a href="javascript:;" class="collapse"></a>
+        </div>
+    </div>
+
+    <div class="portlet-body">
+        <div class="route-result">
+            <table class="table table-striped table-bordered table-hover table-full-width" id="route-table">
+                <thead>
+                <tr>
+                    <th>航路代码</th>
+                    <th>起飞机场</th>
+                    <th>降落机场</th>
+                    <th>机型类别</th>
+                    <th>ETA情报区时间</th>
+                    <th>航路及航路点</th>
+                    <th>ETA情报区时间</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Gecko</td>
+                    <td>Mozilla 1.3</td>
+                    <td>Win 95+ / OSX.1+</td>
+                    <td>1.3</td>
+                    <td>A</td>
+                    <td>A</td>
+                    <td>A</td>
+                </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<script src="../assets/js/table-advanced.js"></script>
+<script>
+    $(document).ready(function () {
+        TableAdvanced.init_route_table();
+    })
+</script>

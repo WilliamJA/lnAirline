@@ -1,0 +1,87 @@
+
+<style>
+    #custom-select {
+        height: 100%;
+        border: 1px solid #e5e5e5;
+        overflow-y: scroll;
+        margin: 0;
+        padding-top: 5px;
+    }
+    #custom-select li{
+        list-style: none;
+        height: 25px;
+        text-indent: 3px;
+        line-height: 25px;
+        width: 94%;
+        margin-left: 5px;
+    }
+    #custom-select li:hover {
+        cursor: pointer;
+    }
+    .li-active {
+        background-color: #999;
+    }
+</style>
+
+<h3 class="page-title">机场航图
+    <small>Airport chart</small>
+</h3>
+<ul class="breadcrumb">
+    <li>
+        <i class="icon-home"></i>
+        <a href="index.html">Home</a>
+        <i class="icon-angle-right"></i>
+    </li>
+    <li><a href="#">首页</a></li>
+    <li class="pull-right no-text-shadow">
+        <div id="dashboard-report-range"
+             class="dashboard-date-range tooltips no-tooltip-on-touch-device responsive"
+             data-tablet="" data-desktop="tooltips" data-placement="top"
+             data-original-title="Change dashboard date range">
+            <i class="icon-calendar"></i>
+            <span></span>
+            <i class="icon-angle-down"></i>
+        </div>
+    </li>
+</ul>
+
+<div class="portlet box red">
+    <div class="portlet-title">
+        <div class="caption"><i class="icon-cogs"></i>机场航图查询</div>
+        <div class="tools">
+            <a href="javascript:;" class="collapse"></a>
+        </div>
+    </div>
+    <div class="portlet-body" style="overflow: hidden";>
+        <form action=""; class="form-horizontal form-border">
+
+            <div class="control-group control-first">
+                <label class="control-label">机场三码/四码</label>
+                <div class="controls">
+                    <input type="text" placeholder="请输入机场代码" class="m-wrap small">
+                    <span class="help-inline"></span>
+                    <button type="button" class="btn red">查询</button>
+                </div>
+            </div>
+        </form>
+        <h5>机场航图列表</h5>
+        <div style="width: 17%;height:794px;float: left">
+            <ul id="custom-select">
+                <li class="li-active">ZBAA-7A</li>
+                <li data-value="RCLY.pdf">ZBAA-7A</li>
+                <li>ZBAA-7A</li>
+                <li>ZBAA-7A</li>
+                <li>ZBAA-7A</li>
+            </ul>
+        </div>
+        <iframe id="iframe-chart" style="float: right" frameborder="0" width="82%" height="800px" src="../ZBAA.pdf"></iframe>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+       $("#custom-select").find("li").on("click",function () {
+          $(this).addClass("li-active").siblings().removeClass("li-active");
+          $("#iframe-chart").attr("src",$(this).attr("data-value"));
+       })
+    })
+</script>

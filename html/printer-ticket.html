@@ -1,0 +1,68 @@
+<style>
+    .order tr th,.order tr td  {
+        text-align: center;
+    }
+</style>
+<div class="portlet box red">
+    <div class="portlet-title">
+        <div class="caption"><i class="icon-print"></i>机票打印</div>
+        <div class="tools">
+            <a href="javascript:;" class="collapse"></a>
+        </div>
+    </div>
+
+    <div class="portlet-body">
+
+        <form action="" class="form-horizontal form-border">
+
+            <div class="control-group control-first">
+                <label class="control-label">客户身份证号<span class="required">*</span></label>
+                <div class="controls">
+                    <input autocomplete="off" placeholder="请输入客户身份证号码" type="text" name="name" data-required="1" class="span6 m-wrap">
+                    <input type="submit" class="btn red" value="确定">
+                </div>
+            </div>
+
+        </form>
+
+        <table class="table table-hover order">
+
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>订单号</th>
+                <th>姓名</th>
+                <th>航班号</th>
+                <th>始发站</th>
+                <th>到达站</th>
+                <th>舱位</th>
+                <th>日期</th>
+                <th>票价</th>
+                <th>订单状态</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1</td>
+                <td>KISUIOKO</td>
+                <td>李易峰</td>
+                <td>FL3825</td>
+                <td>北京</td>
+                <td>上海</td>
+                <td>Y</td>
+                <td>13SEP</td>
+                <th class="price">&#65509<span>1200</span></th>
+                <td><span class="label label-success">已支付</span></td>
+                <td>
+                    <a href="#" class="btn mini red"><i class="icon-print"></i> 打印</a>
+                    <a href="#" class="btn mini blue"><i class="icon-print"></i> 更改</a>
+                    <a href="#" class="btn mini yellow"><i class="icon-print"></i> 退票</a>
+                </td>
+            </tr>
+            </tbody>
+
+        </table>
+
+    </div>
+</div>

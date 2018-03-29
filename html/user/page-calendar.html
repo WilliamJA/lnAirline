@@ -1,0 +1,89 @@
+
+<h3 class="page-title">个人日历
+    <small>Personal Calendar</small>
+</h3>
+<ul class="breadcrumb">
+    <li>
+        <i class="icon-home"></i>
+        <a href="index.html">Home</a>
+        <i class="icon-angle-right"></i>
+    </li>
+    <li><a href="#">首页</a></li>
+    <li class="pull-right no-text-shadow">
+        <div id="dashboard-report-range"
+             class="dashboard-date-range tooltips no-tooltip-on-touch-device responsive"
+             data-tablet="" data-desktop="tooltips" data-placement="top"
+             data-original-title="Change dashboard date range">
+            <i class="icon-calendar"></i>
+            <span></span>
+            <i class="icon-angle-down"></i>
+        </div>
+    </li>
+</ul>
+
+<div class="row-fluid">
+
+    <div class="portlet box red calendar">
+
+        <div class="portlet-title">
+
+            <div class="caption"><i class="icon-reorder"></i>Calendar</div>
+
+        </div>
+
+        <div class="portlet-body light-grey">
+
+            <div class="row-fluid">
+
+                <div class="span3 responsive" data-tablet="span12 fix-margin" data-desktop="span8">
+
+                    <!-- BEGIN DRAGGABLE EVENTS PORTLET-->
+
+                    <h3 class="event-form-title">事件备忘录</h3>
+
+                    <div id="external-events">
+
+                        <form class="inline-form">
+
+                            <input type="text" value="" class="m-wrap span12" placeholder="事件标题" id="event_title" /><br />
+
+                            <a href="javascript:;" id="event_add" class="btn green">添加事件</a>
+
+                        </form>
+
+                        <hr />
+
+                        <div id="event_box">
+
+                        </div>
+
+                        <hr class="visible-phone" />
+
+                    </div>
+
+                    <!-- END DRAGGABLE EVENTS PORTLET-->
+
+                </div>
+
+                <div class="span9">
+                    <div id="calendar" class="has-toolbar"></div>
+                </div>
+
+            </div>
+
+            <!-- END CALENDAR PORTLET-->
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        Calendar.init();
+    })
+</script>
+
+
