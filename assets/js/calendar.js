@@ -1,7 +1,7 @@
 var Calendar = function () {
 
     return {
-        //main function to initiate the module
+        //初始化个人日历模块
         init: function () {
 
             App.addResponsiveHandler(function () {
@@ -76,14 +76,14 @@ var Calendar = function () {
                     revert: true, // will cause the event to go back to its
                     revertDuration: 0 //  original position after the drag
                 });
-            }
+            };
 
             var addEvent = function (title) {
                 title = title.length == 0 ? "Untitled Event" : title;
                 var html = $('<div class="external-event label">' + title + '</div>');
                 jQuery('#event_box').append(html);
                 initDrag(html);
-            }
+            };
 
             $('#external-events div.external-event').each(function () {
                 initDrag($(this))
@@ -94,7 +94,7 @@ var Calendar = function () {
                 addEvent(title);
             });
 
-            //predefined events
+            //添加事件标签
             $('#event_box').html("");
             addEvent("召开会议");
             addEvent("制定航班计划");
@@ -103,17 +103,20 @@ var Calendar = function () {
             addEvent("工作总结");
             addEvent("业绩汇报");
 
-            $('#calendar').fullCalendar('destroy'); // destroy the calendar
-            $('#calendar').fullCalendar({ //re-initialize the calendar
+            // 销毁日历
+            $('#calendar').fullCalendar('destroy');
+
+            //重新初始化
+            $('#calendar').fullCalendar({
                 header: h,
                 slotMinutes: 15,
                 editable: true,
-                droppable: true, // this allows things to be dropped onto the calendar !!!
+                dropable: true,
                 columnFormat : {
                     month: 'dddd', // Mon
                     week: 'M月d日 ddd', // Mon 9/7
                     day: 'M月d日 dddd' // Monday 9/7
-                    },
+                },
                 titleFormat : "yyyy年MM月",
                 buttonText : {
                     today: '今天',
@@ -126,6 +129,10 @@ var Calendar = function () {
                 dayNames : ['星期日', '星期一', '星期二', '星期三',
                     '星期四', '星期五', '星期六'],
                 dayNamesShort : ['周日', '周一', '周二', '周三', '周四', '周五', '周六'],
+
+                //拖动事件时的不透明度
+                dragOpacity : 0.7,
+
                 drop: function (date, allDay) { // this function is called when something is dropped
 
                     // retrieve the dropped element's stored Event Object
@@ -150,7 +157,7 @@ var Calendar = function () {
                 },
                 events: [{
                         title: 'All Day Event',                        
-                        start: new Date(y, m, 1),
+                        start: new Date(y, m, 2),
                         backgroundColor: App.getLayoutColorCode('yellow')
                     }, {
                         title: 'Long Event',

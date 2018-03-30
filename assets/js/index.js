@@ -157,7 +157,6 @@ var Index = function () {
                 height: '55',
                 lineColor: '#ffb848'
             });
-
         },
 
         initChat: function () {

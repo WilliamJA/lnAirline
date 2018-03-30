@@ -25,11 +25,6 @@ var App = function () {
         'yellow': '#ffb848'
     };
 
-    //配置路由表
-    /*var routes = {
-        '/author': showAuthorInfo,
-        '/books': listBooks
-    };*/
 
     var handleInit = function() {
 
@@ -46,12 +41,6 @@ var App = function () {
         }
     };
 
-
-    //初始化系统路由
-    var routeInit = function () {
-        var router = Router(routes);
-        router.init();
-    };
 
     var handleDesktopTabletContents = function () {
         // loops all page elements with "responsive" class and applies classes for tablet mode
@@ -110,7 +99,7 @@ var App = function () {
         handleSidebarState();
         handleDesktopTabletContents();
         handleSidebarAndContentHeight();
-    }
+    };
 
     var handleResponsiveOnResize = function () {
         var resize;
@@ -200,15 +189,16 @@ var App = function () {
                 e.preventDefault();
             });
 
-        // handle ajax links
+        /**
+         * ajax菜单
+         */
         jQuery('.page-sidebar').on('click', 'li > a.ajaxify', function (e) {
                 e.preventDefault();
                 App.scrollTop();
-
-                var url = $(this).attr("href");
                 var menuContainer = jQuery('.page-sidebar ul');
                 var pageContent = $('.page-content');
-                var pageContentBody = $('.page-content #main-content');
+
+                var $href = $(this).attr("href");
 
                 menuContainer.children('li.active').removeClass('active');
                 menuContainer.children('arrow.open').removeClass('open');
@@ -221,12 +211,10 @@ var App = function () {
 
                 App.blockUI(pageContent, false);
 
-                $.post(url, {}, function (res) {
-                    console.log(res);
+                $.post("http://www.baidu.com", {}, function () {
+                    window.location.href = $href;
                         App.unblockUI(pageContent);
-                        pageContentBody.html(res);
-                        //App.fixContentHeight(); // fix content height
-                        App.initUniform(); // initialize uniform elements
+                        App.initUniform();
                     });
             });
     };
@@ -759,9 +747,6 @@ var App = function () {
             handleAccordions(); //handles accordions
             handleChoosenSelect(); // handles bootstrap chosen dropdowns
 
-            //初始化路由
-            //routeInit();
-
             App.addResponsiveHandler(handleChoosenSelect); // reinitiate chosen dropdown on main content resize. disable this line if you don't really use chosen dropdowns.
         },
 
@@ -802,7 +787,7 @@ var App = function () {
         blockUI: function (el, centerY) {
             var el = jQuery(el); 
             el.block({
-                    message: '<img src="../assets/image/ajax-loading.gif" align="">',
+                    message: '<img src="./assets/image/ajax-loading.gif" align="">',
                     centerY: centerY != undefined ? centerY : true,
                     css: {
                         top: '10%',
