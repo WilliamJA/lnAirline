@@ -17,9 +17,27 @@
     }
     #custom-select li:hover {
         cursor: pointer;
+        background-color: #ccc;
     }
-    .li-active {
-        background-color: #999;
+    .suggest {
+        position: absolute;
+        border: 1px solid #ccc;
+        width: 332px;
+        max-height: 150px;
+        overflow-y: scroll;
+        background-color: #fff;
+    }
+    .suggest ul {
+        margin: 0;
+        text-indent: 5px;
+    }
+    .suggest li{
+        padding-top: 3px;
+        list-style: none;
+        cursor: pointer;
+    }
+    .suggest li:hover {
+        background-color: #ccc;
     }
 </style>
 
@@ -34,14 +52,7 @@
     </li>
     <li><a href="#">首页</a></li>
     <li class="pull-right no-text-shadow">
-        <div id="dashboard-report-range"
-             class="dashboard-date-range tooltips no-tooltip-on-touch-device responsive"
-             data-tablet="" data-desktop="tooltips" data-placement="top"
-             data-original-title="Change dashboard date range">
-            <i class="icon-calendar"></i>
-            <span></span>
-            <i class="icon-angle-down"></i>
-        </div>
+        {{utc}} UTC
     </li>
 </ul>
 
@@ -50,6 +61,7 @@
         <div class="caption"><i class="icon-cogs"></i>机场航图查询</div>
         <div class="tools">
             <a href="javascript:;" class="collapse"></a>
+            <a href="javascript:;" map class="map"></a>
         </div>
     </div>
     <div class="portlet-body" style="overflow: hidden";>
@@ -58,25 +70,28 @@
             <div class="control-group control-first">
                 <label class="control-label">机场三码/四码</label>
                 <div class="controls">
-                    <input type="text" placeholder="请输入机场代码" class="m-wrap small">
+                    <input type="text" placeholder="请输入机场代码" class="m-wrap large" ng-model="airportCode">
+                    <div class="m-wrap suggest" ng-show="showSuggest">
+                        <ul>
+                            <li ng-if="noRes">没有找到该机场！</li>
+                            <li ng-repeat="s in suggestAirportList" ng-click="select(s)">{{s.ident}}</li>
+                        </ul>
+                    </div>
                     <span class="help-inline"></span>
-                    <button type="button" class="btn red">查询</button>
+                    <button type="button" class="btn red" ng-click="queryAirChart()">查询</button>
                 </div>
             </div>
         </form>
         <h5>机场航图列表</h5>
         <div style="width: 17%;height:794px;float: left">
             <ul id="custom-select">
-                <li class="li-active">ZBAA-7A</li>
-                <li data-value="RCLY.pdf">ZBAA-7A</li>
-                <li>ZBAA-7A</li>
-                <li>ZBAA-7A</li>
-                <li>ZBAA-7A</li>
+                <li ng-repeat="airchart in airChartList" ng-click="choiceAirchart(airchart)">{{airchart.name}}</li>
             </ul>
         </div>
-        <iframe id="iframe-chart" style="float: right" frameborder="0" width="82%" height="800px" src="../ZBAA.pdf"></iframe>
+        <iframe id="iframe-chart" style="float: right" frameborder="0" width="82%" height="800px" ng-src="{{airchart}}"></iframe>
     </div>
 </div>
+<!--
 <script>
     $(document).ready(function () {
        $("#custom-select").find("li").on("click",function () {
@@ -84,4 +99,4 @@
           $("#iframe-chart").attr("src",$(this).attr("data-value"));
        })
     })
-</script>
+</script>-->

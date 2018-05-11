@@ -1,0 +1,75 @@
+<div class="logo">
+    <img src="assets/image/logo-big.png" alt="" />
+</div>
+
+<!-- END LOGO -->
+
+<!-- BEGIN LOGIN -->
+
+<div class="content">
+
+    <!-- BEGIN LOGIN FORM -->
+    <form class="form-vertical login-form" ng-submit="login()" name="loginForm">
+
+        <h3 class="form-title">登录</h3>
+
+        <div class="control-group">
+
+            <div class="controls">
+
+                <div class="input-icon left">
+
+                    <i class="icon-user"></i>
+                    <input class="m-wrap placeholder-no-fix" required name="principal" ng-model="info.token.principal" type="text" placeholder="账号"/>
+                    <div class="login-msg" ng-messages="loginForm.principal.$error">
+                        <div ng-message="required">请输入您的账户!</div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="control-group">
+
+            <label class="control-label visible-ie8 visible-ie9">密码</label>
+
+            <div class="controls">
+
+                <div class="input-icon left">
+
+                    <i class="icon-lock"></i>
+
+                    <input class="m-wrap placeholder-no-fix" type="password" name="credentials" ng-model="info.token.credentials" required placeholder="密码"/>
+
+                    <div class="login-msg" ng-messages="loginForm.credentials.$error">
+                        <div ng-message="required">请输入您的密码!</div>
+                    </div>
+                    <div class="login-msg">{{loginMsg}}</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn blue pull-right">
+                Login <i class="m-icon-swapright m-icon-white"></i>
+            </button>
+        </div>
+        <div class="forget-password">
+            <h4>Forgot your password ?</h4>
+            <p>如忘记您的密码，请与主管部门联系！</p>
+        </div>
+        <div class="create-account"></div>
+    </form>
+
+
+
+</div>
+
+<!-- END LOGIN -->
+
+<!-- BEGIN COPYRIGHT -->
+
+<div class="copyright">2017 &copy; 辽宁航空运行控制与管理中心</div>

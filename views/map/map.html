@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="http://localhost:8080/arcgis_js_v47_api/arcgis_js_api/library/4.7/dijit/themes/claro/claro.css" rel="stylesheet" />
+    <link rel="stylesheet" href="http://localhost:8080/arcgis_js_v47_api/arcgis_js_api/library/4.7/esri/css/main.css">
+    <style>
+        html, body, #map {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+            background-color: #fff;
+        }
+        .esri-search {
+            position: absolute;
+            top: 20px;
+            left: 50px;
+        }
+    </style>
+    <script>
+        var dojoConfig = {
+            locale: "zh-cn",
+            isDebug: false,
+            async: true,
+            tlmSiblingOfDojo: false,
+            packages: [{
+                name: "sc",
+                location: location.pathname.replace(/\/[^/]*$/, "") + "/module"
+            }]
+        }
+    </script>
+    <script src="http://localhost:8080/arcgis_js_v47_api/arcgis_js_api/library/4.7/dojo/dojo.js"></script>
+    <script src="module/main.js"></script>
+</head>
+<body>
+
+<div id="map"></div>
+
+</body>
+</html>

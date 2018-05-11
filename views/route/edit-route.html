@@ -1,0 +1,347 @@
+<!--编辑航路计划-->
+
+<h3 class="page-title">制作航路计划
+    <small>Route plan</small>
+</h3>
+<ul class="breadcrumb">
+    <li>
+        <i class="icon-home"></i>
+        <a href="../temp/index.html">Home</a>
+        <i class="icon-angle-right"></i>
+    </li>
+    <li><a href="#">首页</a></li>
+    <li class="pull-right no-text-shadow">
+        {{utc}} UTC
+    </li>
+</ul>
+<div class="row-fluid">
+    <div class="span12">
+        <div class="tabbable tabbable-custom boxless">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#tab_1" data-toggle="tab">航路</a></li>
+                <li><a class="" href="#tab_2" data-toggle="tab">详细信息</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="tab_1">
+                    <div class="portlet box blue">
+                        <div class="portlet-title">
+                            <div class="caption"><i class="icon-reorder"></i>Route</div>
+                            <div class="tools">
+                                <a href="javascript:;" class="collapse"></a>
+                                <a href="#portlet-config" data-toggle="modal" class="config"></a>
+                                <a href="javascript:;" map class="map"></a>
+                            </div>
+                        </div>
+                        <div class="portlet-body form">
+                            <!-- BEGIN FORM-->
+                            <form action="#" class="horizontal-form">
+                                <h4 class="form-section">添加航路</h4>
+                                <div class="row-fluid">
+
+                                    <div class="span2">
+                                        <div class="control-group">
+                                            <label class="control-label">离港机场</label>
+                                            <div class="controls">
+                                                <div class="chzn-container span12 chzn-container-single">
+                                                    <a href="javascript:void(0)" style="padding-top: 1px;" ng-click="toggle()" class="chzn-single chzn-single-with-drop">
+                                                        <span class="selectSearch">{{currentLeaveAirport.ident}}</span>
+                                                        <div>
+                                                            <b></b>
+                                                        </div>
+                                                    </a>
+                                                    <div class="chzn-drop" style="width: 428px;top:31px;" ng-show="visible">
+                                                        <div class="chzn-search">
+                                                            <input name="departAirport" ng-model="search.leaveAirport" type="text" autocomplete="off" style="width: 393px;">
+                                                        </div>
+                                                        <ul class="chzn-results">
+                                                            <li class="active-result" data-value="-1">输入关键字进行查找</li>
+                                                            <li class="active-result" ng-click="checked(airport)" ng-repeat="airport in LevAirportList">
+                                                                <span class="ident">{{airport.ident}}</span>
+                                                                <span class='airport-name'>{{airport.name}}</span>
+                                                                <span class='airport-country'>{{airport.country}}</span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="span2">
+                                        <div class="control-group">
+                                            <label class="control-label">离港跑道</label>
+                                            <div class="controls">
+                                                <select class="span12 m-wrap" ng-model="leaveRwy" ng-disabled="leavelRwyisNotOptional">
+                                                    <option value="-1"> -- </option>
+                                                    <option value="{{runway.navRunwayEnd.runwayEndId}}" ng-repeat="runway in LevRnwayList">{{runway.navRunwayEnd.name}}&nbsp &nbsp{{runway.length | number}}m</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="span2">
+                                        <div class="control-group">
+                                            <label class="control-label">SID/DP</label>
+                                            <div class="controls">
+                                                <select class="span24 m-wrap" ng-model="sid" ng-disabled="sidIsDisabled">
+                                                    <option value="-1"> -- </option>
+                                                    <option ng-repeat="sid in sids" value="{{sid.approachId}}">{{sid.fixIdent}}&nbsp &nbsp&nbsp &nbsp {{sid.fixType}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="span2">
+                                        <div class="control-group">
+                                            <label class="control-label">Transition</label>
+                                            <div class="controls">
+                                                <input type="text" class="m-wrap span12" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="span2">
+                                        <div class="control-group">
+                                            <label class="control-label">大圆</label>
+                                            <div class="controls">
+                                                <input type="text" class="m-wrap span12">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row-fluid">
+
+                                    <div class="span2">
+                                        <div class="control-group">
+                                            <label class="control-label">到港机场：</label>
+                                            <div class="controls">
+                                                <div class="chzn-container span12 chzn-container-single">
+                                                    <a href="javascript:void(0)" ng-click="arrToggle()" style="padding-top: 1px;" class="chzn-single chzn-single-with-drop">
+                                                        <span class="selectSearch">{{currentArrAirport.ident}}</span>
+                                                        <div>
+                                                            <b></b>
+                                                        </div>
+                                                    </a>
+                                                    <div class="chzn-drop" style="width: 428px;top:31px;" ng-show="arrVisible">
+                                                        <div class="chzn-search">
+                                                            <input type="text" ng-model="search.arrivalAirport" autocomplete="off" style="width: 393px;">
+                                                        </div>
+                                                        <ul class="chzn-results">
+                                                            <li class="active-result" data-value="-1">输入关键字进行查找</li>
+                                                            <li class="active-result" ng-click="arrChecked(airport)" ng-repeat="airport in ArrAirportList">
+                                                                <span class="ident">{{airport.ident}}</span>
+                                                                <span class='airport-name'>{{airport.name}}</span>
+                                                                <span class='airport-country'>{{airport.country}}</span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="span2">
+                                        <div class="control-group">
+                                            <label class="control-label">到港跑道</label>
+                                            <div class="controls">
+                                                <select class="span12 m-wrap" ng-model="arrivalRwy" ng-disabled="arrivalRwyisNotOptional">
+                                                    <option value="-1"> -- </option>
+                                                    <option value="{{runway.runwayId}}" ng-repeat="runway in arRnwayList">{{runway.navRunwayEnd.name}}&nbsp &nbsp{{runway.length | number}}m</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="span2">
+                                        <div class="control-group">
+                                            <label class="control-label">STAR</label>
+                                            <div class="controls">
+                                                <select class="span24 m-wrap" ng-model="star" ng-disabled="starIsDisabled">
+                                                    <option value="-1"> -- </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="span2">
+                                        <div class="control-group">
+                                            <label class="control-label">Transition</label>
+                                            <div class="controls">
+                                                <input type="text" class="m-wrap disabled span12" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="span2">
+                                        <div class="control-group">
+                                            <label class="control-label">小圆</label>
+                                            <div class="controls">
+                                                <input type="text" class="m-wrap span12" placeholder="To">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row-fluid">
+
+                                    <div class="span4">
+                                        <div class="control-group">
+                                            <label class="control-label">航路</label>
+                                            <div class="controls">
+                                                <input type="text" readonly class="m-wrap span12" placeholder="Route">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="span2">
+                                        <div class="control-group">
+                                            <label class="control-label">Great circle</label>
+                                            <div class="controls">
+                                                <input type="text" readonly class="m-wrap span12">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="span2">
+                                        <div class="control-group">
+                                            <label class="control-label">Flight Plan</label>
+                                            <div class="controls">
+                                                <input type="text" readonly class="m-wrap span12">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="span2">
+                                        <div class="control-group">
+                                            <label class="control-label">Dist Increase</label>
+                                            <div class="controls">
+                                                <input type="text" readonly class="m-wrap span12">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row-fluid">
+                                    <table oncontextmenu="return false;" class="table table-bordered table-hover">
+                                        <thead>
+                                        <tr>
+                                            <th>航点</th>
+                                            <th>MT</th>
+                                            <th>Leg(nm)</th>
+                                            <th>Ident</th>
+                                            <th>频率/名称</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Mark</td>
+
+                                            <td>Otto</td>
+
+                                            <td class="hidden-480">makr124</td>
+
+                                            <td><span class="label label-success">Approved</span></td>
+
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="row-fluid">
+                                    <div class="span12">
+                                        <div class="control-group">
+                                            <label class="control-label">ATC 航路</label>
+                                            <textarea style="resize: none;overflow-y: scroll" class="span12 m-wrap" rows="6"></textarea>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                                <!--/row-->
+                            </form>
+
+                            <div class="form-actions">
+                                <button type="submit" class="btn blue">保存</button>
+                                <button type="button" class="btn">重置</button>
+                            </div>
+
+                            <!-- END FORM-->
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="tab-pane" id="tab_2">
+                    <div class="portlet box blue">
+                        <div class="portlet-title">
+                            <div class="caption"><i class="icon-reorder"></i>Aircraft</div>
+                            <div class="tools">
+                                <a href="javascript:;" class="collapse"></a>
+                                <a href="#portlet-config" data-toggle="modal" class="config"></a>
+                                <a href="javascript:;" class="reload"></a>
+                                <a href="javascript:;" class="map"></a>
+                            </div>
+                        </div>
+                        <div class="portlet-body form">
+                            <!-- BEGIN FORM-->
+                            <form action="#" class="horizontal-form">
+                                <h4 class="form-section">添加机型</h4>
+                                <div class="row-fluid">
+                                    <table class="table table-bordered table-hover">
+                                        <thead>
+                                        <tr>
+                                            <th>#</th>
+
+                                            <th>First Name</th>
+
+                                            <th>Last Name</th>
+
+                                            <th class="hidden-480">Username</th>
+
+                                            <th>Status</th>
+
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Mark</td>
+
+                                            <td>Otto</td>
+
+                                            <td class="hidden-480">makr124</td>
+
+                                            <td><span class="label label-success">Approved</span></td>
+
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <!--/row-->
+                            </form>
+                            <!-- END FORM-->
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+

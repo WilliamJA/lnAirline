@@ -10,14 +10,7 @@
     </li>
     <li><a href="#">首页</a></li>
     <li class="pull-right no-text-shadow">
-        <div id="dashboard-report-range"
-             class="dashboard-date-range tooltips no-tooltip-on-touch-device responsive"
-             data-tablet="" data-desktop="tooltips" data-placement="top"
-             data-original-title="Change dashboard date range">
-            <i class="icon-calendar"></i>
-            <span></span>
-            <i class="icon-angle-down"></i>
-        </div>
+       {{utc}} UTC
     </li>
 </ul>
 
@@ -44,17 +37,14 @@
                     <div id="external-events">
 
                         <form class="inline-form">
-
-                            <input type="text" value="" class="m-wrap span12" placeholder="事件标题" id="event_title" /><br />
-
-                            <a href="javascript:;" id="event_add" class="btn green">添加事件</a>
-
+                            <input type="text" class="m-wrap span12" ng-model="eventTitle" placeholder="事件标题" /><br />
+                            <a class="btn green" ng-click="addEventLabel()">添加事件</a>
                         </form>
 
-                        <hr />
+                        <hr/>
 
-                        <div id="event_box">
-
+                        <div>
+                            <div class='external-event label' ng-repeat="f in eventLabelList">{{f.name}}</div>
                         </div>
 
                         <hr class="visible-phone" />
@@ -66,7 +56,7 @@
                 </div>
 
                 <div class="span9">
-                    <div id="calendar" class="has-toolbar"></div>
+                    <div id="calendar" ui-calendar="uiConfig.calendar" ng-model="eventSources" class="has-toolbar"></div>
                 </div>
 
             </div>
@@ -79,11 +69,5 @@
 
 </div>
 
-
-<script>
-    $(document).ready(function () {
-        Calendar.init();
-    })
-</script>
 
 

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * { padding:0;margin:0;}
+        .notice-page { min-width:1000px; max-width:1200px; margin:0 auto; font-family:'microsoft yahei';}
+        .crumbs-nav { line-height:62px; font-size:12px;}
+        .crumbs-nav a { color:#00a2ca; text-decoration:none;}
+        .crumbs-nav span { color:#666;}
+        .crumbs-nav b { color:#ccc; margin:0 8px; font-weight:normal;}
+        .notice-main { border:1px solid #e8e8e8; margin-bottom:40px;}
+        .notice-main-center { padding:0 8% 30px 8%;}
+        .notice-title { border-bottom:1px solid #e8e8e8; line-height:84px; text-align:center; font-size:24px; color:#333; font-weight:500;}
+        .dear-customer { line-height:70px; font-size:14px; color:#333; padding-top:12px;}
+        .notice-txt { line-height:24px; font-size:12px; color:#333; text-indent:3em;}
+        .notice-txt-top { padding-bottom:70px;}
+        .notice-inscribe { line-height:24px; font-size:14px; color:#333; text-align:right;}
+
+    </style>
+    <script src="../../assets/js/plug/jquery/jquery-1.10.1.min.js"></script>
+    <script>
+        $(function () {
+           var notice = JSON.parse(localStorage.getItem("noticeInfo"));
+           var $title = $(".title");
+           var $seKnowledge = $("#se-knowledge");
+           var $type = $(".notice-type");
+
+           $title.empty().append(notice.title);
+           $seKnowledge.empty().append(notice.content);
+
+           switch (notice.type) {
+               case "0": $type.empty().append("系统公告");
+           }
+
+        });
+    </script>
+
+</head>
+<body>
+
+<div style="z-index: 99;top:30px;position: static;" class="viewFramework-body">
+    <div class="viewFramework-product" style="position: static;">
+        <div class="viewFramework-product-body" style="position: static;">
+            <!--product body-->
+            <div class="console-container" data-spm="n2">
+                <div class="row">
+                    <div class="col-sm-12">
+
+                        <div class="notice-page">
+                            <div class="crumbs-nav">
+                                <a href="javascript:;">系统首页</a><b>&gt;</b>
+                                <span>  <a href="javascript:;" class="notice-type"> </a></span><b>&gt;</b>
+                                <span class="title"> </span>
+                            </div>
+
+                            <div class="notice-main">
+                                <div class="notice-main-center">
+                                    <h3 class="notice-title title"></h3>
+                                    <div style="font-size:14px;margin-top: 20px;">
+                                        <div id="se-knowledge"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>

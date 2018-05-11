@@ -1,7 +1,7 @@
 
 
 <h3 class="page-title">个人信息
-	<small>Personal information</small>
+	<small>Personal Information</small>
 </h3>
 <ul class="breadcrumb">
 	<li>
@@ -11,14 +11,7 @@
 	</li>
 	<li><a href="#">首页</a></li>
 	<li class="pull-right no-text-shadow">
-		<div id="dashboard-report-range"
-			 class="dashboard-date-range tooltips no-tooltip-on-touch-device responsive"
-			 data-tablet="" data-desktop="tooltips" data-placement="top"
-			 data-original-title="Change dashboard date range">
-			<i class="icon-calendar"></i>
-			<span></span>
-			<i class="icon-angle-down"></i>
-		</div>
+		{{utc}} UTC
 	</li>
 </ul>
 
@@ -38,8 +31,6 @@
 
 				<li class=""><a href="#tab_1_3" data-toggle="tab">账户信息</a></li>
 
-				<li class=""><a href="#tab_1_4" data-toggle="tab">Projects</a></li>
-
 				<li class=""><a href="#tab_1_6" data-toggle="tab">帮助</a></li>
 
 			</ul>
@@ -49,20 +40,11 @@
 				<div class="tab-pane row-fluid active" id="tab_1_1">
 
 					<ul class="unstyled profile-nav span3">
-
 						<li>
-							<img src="../../assets/image/profile-img.png" alt="">
+							<img ng-src="{{loginUserInfo.pic}}"/>
 						</li>
-
-						<li><a href="#">Projects</a></li>
-
-						<li><a href="#">Messages <span>3</span></a></li>
-
-						<li><a href="#">Friends</a></li>
-
-						<li><a href="#">Settings</a></li>
-
 					</ul>
+
 
 					<div class="span9">
 
@@ -70,1053 +52,31 @@
 
 							<div class="span8 profile-info">
 
-								<h1>陈翔</h1>
+								<h1>{{loginUserInfo.firstName}}{{loginUserInfo.lastName}}</h1>
 
-								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt laoreet dolore magna aliquam tincidunt erat volutpat laoreet dolore magna aliquam tincidunt erat volutpat.</p>
+								<p>{{loginUserInfo.personalProfile}}</p>
 
-								<p><a href="#">www.mywebsite.com</a></p>
+								<p><a href="{{loginUserInfo.blog}}" target="_blank">{{loginUserInfo.blog}}</a></p>
 
 								<ul class="unstyled inline">
 
-									<li><i class="icon-map-marker"></i> 北京</li>
+									<li><i class="icon-map-marker"></i> {{loginUserInfo.place}}</li>
 
-									<li><i class="icon-calendar"></i> 1993-10-19</li>
+									<li><i class="icon-calendar"></i> {{loginUserInfo.birthday | date:'yyyy-MM-dd'}}</li>
 
-									<li><i class="icon-briefcase"></i> 设计</li>
+									<li><i class="icon-briefcase"></i> {{loginUserInfo.sysPost.postName}}</li>
 
-									<li><i class="icon-star"></i> Top Seller</li>
+									<li><i class="icon-star"></i> {{loginUserInfo.phone}}</li>
 
-									<li><i class="icon-heart"></i> BASE Jumping</li>
+									<li><i class="icon-heart"></i> {{loginUserInfo.hobby}}</li>
 
 								</ul>
 
 							</div>
 
-							<!--end span8-->
-
-							<div class="span4">
-
-								<div class="portlet sale-summary">
-
-									<div class="portlet-title">
-
-										<div class="caption">Sales Summary</div>
-
-										<div class="tools">
-
-											<a class="reload" href="javascript:;"></a>
-
-										</div>
-
-									</div>
-
-									<ul class="unstyled">
-
-										<li>
-
-											<span class="sale-info">TODAY SOLD <i class="icon-img-up"></i></span>
-
-											<span class="sale-num">23</span>
-
-										</li>
-
-										<li>
-
-											<span class="sale-info">WEEKLY SALES <i class="icon-img-down"></i></span>
-
-											<span class="sale-num">87</span>
-
-										</li>
-
-										<li>
-
-											<span class="sale-info">TOTAL SOLD</span>
-
-											<span class="sale-num">2377</span>
-
-										</li>
-
-										<li>
-
-											<span class="sale-info">EARNS</span>
-
-											<span class="sale-num">$37.990</span>
-
-										</li>
-
-									</ul>
-
-								</div>
-
-							</div>
-
-							<!--end span4-->
-
 						</div>
 
 						<!--end row-fluid-->
-
-						<div class="tabbable tabbable-custom tabbable-custom-profile">
-
-							<ul class="nav nav-tabs">
-
-								<li class=""><a href="#tab_1_11" data-toggle="tab">Latest Customers</a></li>
-
-								<li class="active"><a href="#tab_1_22" data-toggle="tab">Feeds</a></li>
-
-							</ul>
-
-							<div class="tab-content">
-
-								<div class="tab-pane" id="tab_1_11">
-
-									<div class="portlet-body" style="display: block;">
-
-										<table class="table table-striped table-bordered table-advance table-hover">
-
-											<thead>
-
-											<tr>
-
-												<th><i class="icon-briefcase"></i> Company</th>
-
-												<th class="hidden-phone"><i class="icon-question-sign"></i> Descrition</th>
-
-												<th><i class="icon-bookmark"></i> Amount</th>
-
-												<th></th>
-
-											</tr>
-
-											</thead>
-
-											<tbody>
-
-											<tr>
-
-												<td><a href="#">Pixel Ltd</a></td>
-
-												<td class="hidden-phone">Server hardware purchase</td>
-
-												<td>52560.10$ <span class="label label-success label-mini">Paid</span></td>
-
-												<td><a class="btn mini green-stripe" href="#">View</a></td>
-
-											</tr>
-
-											<tr>
-
-												<td>
-
-													<a href="#">
-
-														Smart House
-
-													</a>
-
-												</td>
-
-												<td class="hidden-phone">Office furniture purchase</td>
-
-												<td>5760.00$ <span class="label label-warning label-mini">Pending</span></td>
-
-												<td><a class="btn mini blue-stripe" href="#">View</a></td>
-
-											</tr>
-
-											<tr>
-
-												<td>
-
-													<a href="#">
-
-														FoodMaster Ltd
-
-													</a>
-
-												</td>
-
-												<td class="hidden-phone">Company Anual Dinner Catering</td>
-
-												<td>12400.00$ <span class="label label-success label-mini">Paid</span></td>
-
-												<td><a class="btn mini blue-stripe" href="#">View</a></td>
-
-											</tr>
-
-											<tr>
-
-												<td>
-
-													<a href="#">
-
-														WaterPure Ltd
-
-													</a>
-
-												</td>
-
-												<td class="hidden-phone">Payment for Jan 2013</td>
-
-												<td>610.50$ <span class="label label-danger label-mini">Overdue</span></td>
-
-												<td><a class="btn mini red-stripe" href="#">View</a></td>
-
-											</tr>
-
-											<tr>
-
-												<td><a href="#">Pixel Ltd</a></td>
-
-												<td class="hidden-phone">Server hardware purchase</td>
-
-												<td>52560.10$ <span class="label label-success label-mini">Paid</span></td>
-
-												<td><a class="btn mini green-stripe" href="#">View</a></td>
-
-											</tr>
-
-											<tr>
-
-												<td>
-
-													<a href="#">
-
-														Smart House
-
-													</a>
-
-												</td>
-
-												<td class="hidden-phone">Office furniture purchase</td>
-
-												<td>5760.00$ <span class="label label-warning label-mini">Pending</span></td>
-
-												<td><a class="btn mini blue-stripe" href="#">View</a></td>
-
-											</tr>
-
-											<tr>
-
-												<td>
-
-													<a href="#">
-
-														FoodMaster Ltd
-
-													</a>
-
-												</td>
-
-												<td class="hidden-phone">Company Anual Dinner Catering</td>
-
-												<td>12400.00$ <span class="label label-success label-mini">Paid</span></td>
-
-												<td><a class="btn mini blue-stripe" href="#">View</a></td>
-
-											</tr>
-
-											</tbody>
-
-										</table>
-
-									</div>
-
-								</div>
-
-								<!--tab-pane-->
-
-								<div class="tab-pane active" id="tab_1_22">
-
-									<div class="tab-pane active" id="tab_1_1_1">
-
-										<div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 290px;"><div class="scroller" data-height="290px" data-always-visible="1" data-rail-visible1="1" style="overflow: hidden; width: auto; height: 290px;">
-
-											<ul class="feeds">
-
-												<li>
-
-													<div class="col1">
-
-														<div class="cont">
-
-															<div class="cont-col1">
-
-																<div class="label label-success">
-
-																	<i class="icon-bell"></i>
-
-																</div>
-
-															</div>
-
-															<div class="cont-col2">
-
-																<div class="desc">
-
-																	You have 4 pending tasks.
-
-																	<span class="label label-important label-mini">
-
-																					Take action
-
-																					<i class="icon-share-alt"></i>
-
-																					</span>
-
-																</div>
-
-															</div>
-
-														</div>
-
-													</div>
-
-													<div class="col2">
-
-														<div class="date">
-
-															Just now
-
-														</div>
-
-													</div>
-
-												</li>
-
-												<li>
-
-													<a href="#">
-
-														<div class="col1">
-
-															<div class="cont">
-
-																<div class="cont-col1">
-
-																	<div class="label label-success">
-
-																		<i class="icon-bell"></i>
-
-																	</div>
-
-																</div>
-
-																<div class="cont-col2">
-
-																	<div class="desc">
-
-																		New version v1.4 just lunched!
-
-																	</div>
-
-																</div>
-
-															</div>
-
-														</div>
-
-														<div class="col2">
-
-															<div class="date">
-
-																20 mins
-
-															</div>
-
-														</div>
-
-													</a>
-
-												</li>
-
-												<li>
-
-													<div class="col1">
-
-														<div class="cont">
-
-															<div class="cont-col1">
-
-																<div class="label label-important">
-
-																	<i class="icon-bolt"></i>
-
-																</div>
-
-															</div>
-
-															<div class="cont-col2">
-
-																<div class="desc">
-
-																	Database server #12 overloaded. Please fix the issue.
-
-																</div>
-
-															</div>
-
-														</div>
-
-													</div>
-
-													<div class="col2">
-
-														<div class="date">
-
-															24 mins
-
-														</div>
-
-													</div>
-
-												</li>
-
-												<li>
-
-													<div class="col1">
-
-														<div class="cont">
-
-															<div class="cont-col1">
-
-																<div class="label label-info">
-
-																	<i class="icon-bullhorn"></i>
-
-																</div>
-
-															</div>
-
-															<div class="cont-col2">
-
-																<div class="desc">
-
-																	New order received. Please take care of it.
-
-																</div>
-
-															</div>
-
-														</div>
-
-													</div>
-
-													<div class="col2">
-
-														<div class="date">
-
-															30 mins
-
-														</div>
-
-													</div>
-
-												</li>
-
-												<li>
-
-													<div class="col1">
-
-														<div class="cont">
-
-															<div class="cont-col1">
-
-																<div class="label label-success">
-
-																	<i class="icon-bullhorn"></i>
-
-																</div>
-
-															</div>
-
-															<div class="cont-col2">
-
-																<div class="desc">
-
-																	New order received. Please take care of it.
-
-																</div>
-
-															</div>
-
-														</div>
-
-													</div>
-
-													<div class="col2">
-
-														<div class="date">
-
-															40 mins
-
-														</div>
-
-													</div>
-
-												</li>
-
-												<li>
-
-													<div class="col1">
-
-														<div class="cont">
-
-															<div class="cont-col1">
-
-																<div class="label label-warning">
-
-																	<i class="icon-plus"></i>
-
-																</div>
-
-															</div>
-
-															<div class="cont-col2">
-
-																<div class="desc">
-
-																	New user registered.
-
-																</div>
-
-															</div>
-
-														</div>
-
-													</div>
-
-													<div class="col2">
-
-														<div class="date">
-
-															1.5 hours
-
-														</div>
-
-													</div>
-
-												</li>
-
-												<li>
-
-													<div class="col1">
-
-														<div class="cont">
-
-															<div class="cont-col1">
-
-																<div class="label label-success">
-
-																	<i class="icon-bell-alt"></i>
-
-																</div>
-
-															</div>
-
-															<div class="cont-col2">
-
-																<div class="desc">
-
-																	Web server hardware needs to be upgraded.
-
-																	<span class="label label-inverse label-mini">Overdue</span>
-
-																</div>
-
-															</div>
-
-														</div>
-
-													</div>
-
-													<div class="col2">
-
-														<div class="date">
-
-															2 hours
-
-														</div>
-
-													</div>
-
-												</li>
-
-												<li>
-
-													<div class="col1">
-
-														<div class="cont">
-
-															<div class="cont-col1">
-
-																<div class="label">
-
-																	<i class="icon-bullhorn"></i>
-
-																</div>
-
-															</div>
-
-															<div class="cont-col2">
-
-																<div class="desc">
-
-																	New order received. Please take care of it.
-
-																</div>
-
-															</div>
-
-														</div>
-
-													</div>
-
-													<div class="col2">
-
-														<div class="date">
-
-															3 hours
-
-														</div>
-
-													</div>
-
-												</li>
-
-												<li>
-
-													<div class="col1">
-
-														<div class="cont">
-
-															<div class="cont-col1">
-
-																<div class="label label-warning">
-
-																	<i class="icon-bullhorn"></i>
-
-																</div>
-
-															</div>
-
-															<div class="cont-col2">
-
-																<div class="desc">
-
-																	New order received. Please take care of it.
-
-																</div>
-
-															</div>
-
-														</div>
-
-													</div>
-
-													<div class="col2">
-
-														<div class="date">
-
-															5 hours
-
-														</div>
-
-													</div>
-
-												</li>
-
-												<li>
-
-													<div class="col1">
-
-														<div class="cont">
-
-															<div class="cont-col1">
-
-																<div class="label label-info">
-
-																	<i class="icon-bullhorn"></i>
-
-																</div>
-
-															</div>
-
-															<div class="cont-col2">
-
-																<div class="desc">
-
-																	New order received. Please take care of it.
-
-																</div>
-
-															</div>
-
-														</div>
-
-													</div>
-
-													<div class="col2">
-
-														<div class="date">
-
-															18 hours
-
-														</div>
-
-													</div>
-
-												</li>
-
-												<li>
-
-													<div class="col1">
-
-														<div class="cont">
-
-															<div class="cont-col1">
-
-																<div class="label">
-
-																	<i class="icon-bullhorn"></i>
-
-																</div>
-
-															</div>
-
-															<div class="cont-col2">
-
-																<div class="desc">
-
-																	New order received. Please take care of it.
-
-																</div>
-
-															</div>
-
-														</div>
-
-													</div>
-
-													<div class="col2">
-
-														<div class="date">
-
-															21 hours
-
-														</div>
-
-													</div>
-
-												</li>
-
-												<li>
-
-													<div class="col1">
-
-														<div class="cont">
-
-															<div class="cont-col1">
-
-																<div class="label label-info">
-
-																	<i class="icon-bullhorn"></i>
-
-																</div>
-
-															</div>
-
-															<div class="cont-col2">
-
-																<div class="desc">
-
-																	New order received. Please take care of it.
-
-																</div>
-
-															</div>
-
-														</div>
-
-													</div>
-
-													<div class="col2">
-
-														<div class="date">
-
-															22 hours
-
-														</div>
-
-													</div>
-
-												</li>
-
-												<li>
-
-													<div class="col1">
-
-														<div class="cont">
-
-															<div class="cont-col1">
-
-																<div class="label">
-
-																	<i class="icon-bullhorn"></i>
-
-																</div>
-
-															</div>
-
-															<div class="cont-col2">
-
-																<div class="desc">
-
-																	New order received. Please take care of it.
-
-																</div>
-
-															</div>
-
-														</div>
-
-													</div>
-
-													<div class="col2">
-
-														<div class="date">
-
-															21 hours
-
-														</div>
-
-													</div>
-
-												</li>
-
-												<li>
-
-													<div class="col1">
-
-														<div class="cont">
-
-															<div class="cont-col1">
-
-																<div class="label label-info">
-
-																	<i class="icon-bullhorn"></i>
-
-																</div>
-
-															</div>
-
-															<div class="cont-col2">
-
-																<div class="desc">
-
-																	New order received. Please take care of it.
-
-																</div>
-
-															</div>
-
-														</div>
-
-													</div>
-
-													<div class="col2">
-
-														<div class="date">
-
-															22 hours
-
-														</div>
-
-													</div>
-
-												</li>
-
-												<li>
-
-													<div class="col1">
-
-														<div class="cont">
-
-															<div class="cont-col1">
-
-																<div class="label">
-
-																	<i class="icon-bullhorn"></i>
-
-																</div>
-
-															</div>
-
-															<div class="cont-col2">
-
-																<div class="desc">
-
-																	New order received. Please take care of it.
-
-																</div>
-
-															</div>
-
-														</div>
-
-													</div>
-
-													<div class="col2">
-
-														<div class="date">
-
-															21 hours
-
-														</div>
-
-													</div>
-
-												</li>
-
-												<li>
-
-													<div class="col1">
-
-														<div class="cont">
-
-															<div class="cont-col1">
-
-																<div class="label label-info">
-
-																	<i class="icon-bullhorn"></i>
-
-																</div>
-
-															</div>
-
-															<div class="cont-col2">
-
-																<div class="desc">
-
-																	New order received. Please take care of it.
-
-																</div>
-
-															</div>
-
-														</div>
-
-													</div>
-
-													<div class="col2">
-
-														<div class="date">
-
-															22 hours
-
-														</div>
-
-													</div>
-
-												</li>
-
-												<li>
-
-													<div class="col1">
-
-														<div class="cont">
-
-															<div class="cont-col1">
-
-																<div class="label">
-
-																	<i class="icon-bullhorn"></i>
-
-																</div>
-
-															</div>
-
-															<div class="cont-col2">
-
-																<div class="desc">
-
-																	New order received. Please take care of it.
-
-																</div>
-
-															</div>
-
-														</div>
-
-													</div>
-
-													<div class="col2">
-
-														<div class="date">
-
-															21 hours
-
-														</div>
-
-													</div>
-
-												</li>
-
-												<li>
-
-													<div class="col1">
-
-														<div class="cont">
-
-															<div class="cont-col1">
-
-																<div class="label label-info">
-
-																	<i class="icon-bullhorn"></i>
-
-																</div>
-
-															</div>
-
-															<div class="cont-col2">
-
-																<div class="desc">
-
-																	New order received. Please take care of it.
-
-																</div>
-
-															</div>
-
-														</div>
-
-													</div>
-
-													<div class="col2">
-
-														<div class="date">
-
-															22 hours
-
-														</div>
-
-													</div>
-
-												</li>
-
-											</ul>
-
-										</div><div class="slimScrollBar ui-draggable" style="background: rgb(161, 178, 189); width: 7px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px; height: 133.492px;"></div><div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
-
-									</div>
-
-								</div>
-
-								<!--tab-pane-->
-
-							</div>
-
-						</div>
 
 					</div>
 
@@ -1128,32 +88,22 @@
 
 				<div class="tab-pane profile-classic row-fluid" id="tab_1_2">
 
-					<div class="span2"><img src="../../assets/image/profile-img.png" alt=""></div>
+					<div class="span2">
+						<img ng-src="{{loginUserInfo.pic}}"/>
+					</div>
 
 					<ul class="unstyled span10">
-
-						<li><span>用户名:</span> JDuser</li>
-
-						<li><span>姓:</span> John</li>
-
-						<li><span>名:</span> Doe</li>
-
-						<li><span>所在城市:</span> 北京</li>
-
-						<li><span>出生日期:</span> 1993-10-19</li>
-
-						<li><span>岗位:</span> 签派员</li>
-
-						<li><span>电子信箱:</span> <a href="#">1119290792@qq.com</a></li>
-
+						<li><span>用户名:</span> {{loginUserInfo.loginName}}</li>
+						<li><span>姓:</span> {{loginUserInfo.firstName}}</li>
+						<li><span>名:</span> {{loginUserInfo.lastName}}</li>
+						<li><span>所在城市:</span> {{loginUserInfo.place}}</li>
+						<li><span>出生日期:</span> {{loginUserInfo.birthday | date:'yyyy-MM-dd'}}</li>
+						<li><span>岗位:</span> {{loginUserInfo.sysPost.postName}}</li>
+						<li><span>电子信箱:</span> <a href="#">{{loginUserInfo.email}}</a></li>
 						<li><span>兴趣爱好:</span> 设计, 开发.</li>
-
-						<li><span>个人博客:</span> <a href="#">http://www.mywebsite.com</a></li>
-
-						<li><span>移动电话:</span> 18309346731</li>
-
-						<li><span>个人简介:</span> Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.</li>
-
+						<li><span>个人博客:</span> <a href="#">{{loginUserInfo.blog}}</a></li>
+						<li><span>移动电话:</span> {{loginUserInfo.phone}}</li>
+						<li><span>个人简介:</span> {{loginUserInfo.personalProfile}}</li>
 					</ul>
 
 				</div>
@@ -1161,91 +111,70 @@
 				<!--tab_1_2-->
 
 				<div class="tab-pane row-fluid profile-account" id="tab_1_3">
-
 					<div class="row-fluid">
-
 						<div class="span12">
-
 							<div class="span3">
-
 								<ul class="ver-inline-menu tabbable margin-bottom-10">
-
-									<li class="">
-
+									<li class="active">
 										<a data-toggle="tab" href="#tab_1-1">
-
-											<i class="icon-cog"></i>
-											个人信息
+											<i class="icon-cog"></i>基本信息
 										</a>
-
 										<span class="after"></span>
-
 									</li>
 
-									<li class=""><a data-toggle="tab" href="#tab_2-2"><i class="icon-picture"></i> 修改头像</a></li>
+									<li class="">
+										<a data-toggle="tab" href="#tab_2-2">
+											<i class="icon-cog"></i>详细信息
+										</a>
+										<span class="after"></span>
+									</li>
 
-									<li class="active"><a data-toggle="tab" href="#tab_3-3"><i class="icon-lock"></i> 修改密码</a></li>
-
-									<li class=""><a data-toggle="tab" href="#tab_4-4"><i class="icon-eye-open"></i> Privacity Settings</a></li>
-
+									<li class="">
+										<a data-toggle="tab" href="#tab_3-3">
+											<i class="icon-picture"></i> 上传头像</a>
+									</li>
+									<li class=""><a data-toggle="tab" href="#tab_4-4">
+										<i class="icon-lock"></i> 修改密码</a></li>
 								</ul>
-
 							</div>
 
 							<div class="span9">
 
 								<div class="tab-content">
 
-									<div id="tab_1-1" class="tab-pane">
+									<div id="tab_1-1" class="tab-pane active">
 
 										<div style="height: auto;" id="accordion1-1" class="accordion in collapse">
 
 											<form action="#">
 
-												<label class="control-label">First Name</label>
+												<label class="control-label">姓</label>
+												<input type="text" placeholder="请输入姓" ng-model="loginUserInfo.firstName" class="m-wrap span8">
 
-												<input type="text" placeholder="John" class="m-wrap span8">
+												<label class="control-label">名</label>
+												<input type="text" placeholder="请输入名" ng-model="loginUserInfo.lastName" class="m-wrap span8">
 
-												<label class="control-label">Last Name</label>
+												<label class="control-label">英文名</label>
+												<input type="text" placeholder="请输入英文名" ng-model="loginUserInfo.englishName" class="m-wrap span8">
 
-												<input type="text" placeholder="Doe" class="m-wrap span8">
+												<label class="control-label">性别</label>
+												<select class="span8 m-wrap" ng-model="loginUserInfo.sex">
+													<option value="1">男</option>
+													<option value="0">女</option>
+												</select>
 
-												<label class="control-label">Mobile Number</label>
+												<label class="control-label">工号</label>
+												<input type="text" readonly ng-model="loginUserInfo.jobNum" class="m-wrap span8">
 
-												<input type="text" placeholder="+1 646 580 DEMO (6284)" class="m-wrap span8">
+												<label class="control-label">所属部门</label>
+												<input type="text" readonly ng-model="loginUserInfo.sysDepartment.deptName" class="m-wrap span8">
 
-												<label class="control-label">Interests</label>
-
-												<input type="text" placeholder="Design, Web etc." class="m-wrap span8">
-
-												<label class="control-label">Occupation</label>
-
-												<input type="text" placeholder="Web Developer" class="m-wrap span8">
-
-												<label class="control-label">Counrty</label>
-
-												<div class="controls">
-
-													<input type="text" class="span8 m-wrap" style="margin: 0 auto;" data-provide="typeahead" data-items="4" data-source="[&quot;Alabama&quot;,&quot;Alaska&quot;,&quot;Arizona&quot;,&quot;Arkansas&quot;,&quot;US&quot;,&quot;Colorado&quot;,&quot;Connecticut&quot;,&quot;Delaware&quot;,&quot;Florida&quot;,&quot;Georgia&quot;,&quot;Hawaii&quot;,&quot;Idaho&quot;,&quot;Illinois&quot;,&quot;Indiana&quot;,&quot;Iowa&quot;,&quot;Kansas&quot;,&quot;Kentucky&quot;,&quot;Louisiana&quot;,&quot;Maine&quot;,&quot;Maryland&quot;,&quot;Massachusetts&quot;,&quot;Michigan&quot;,&quot;Minnesota&quot;,&quot;Mississippi&quot;,&quot;Missouri&quot;,&quot;Montana&quot;,&quot;Nebraska&quot;,&quot;Nevada&quot;,&quot;New Hampshire&quot;,&quot;New Jersey&quot;,&quot;New Mexico&quot;,&quot;New York&quot;,&quot;North Dakota&quot;,&quot;North Carolina&quot;,&quot;Ohio&quot;,&quot;Oklahoma&quot;,&quot;Oregon&quot;,&quot;Pennsylvania&quot;,&quot;Rhode Island&quot;,&quot;South Carolina&quot;,&quot;South Dakota&quot;,&quot;Tennessee&quot;,&quot;Texas&quot;,&quot;Utah&quot;,&quot;Vermont&quot;,&quot;Virginia&quot;,&quot;Washington&quot;,&quot;West Virginia&quot;,&quot;Wisconsin&quot;,&quot;Wyoming&quot;]">
-
-													<p class="help-block"><span class="muted">Start typing to auto complete!. E.g: US</span></p>
-
-												</div>
-
-												<label class="control-label">About</label>
-
-												<textarea class="span8 m-wrap" rows="3"></textarea>
-
-												<label class="control-label">Website Url</label>
-
-												<input type="text" placeholder="http://www.mywebsite.com" class="m-wrap span8">
+												<label class="control-label">岗位</label>
+												<input type="text" readonly ng-model="loginUserInfo.sysPost.postName" class="m-wrap span8">
 
 												<div class="submit-btn">
-
-													<a href="#" class="btn green">Save Changes</a>
-
-													<a href="#" class="btn">Cancel</a>
-
+													<a href="javascript:;" class="btn green" ng-click="saveBaseInfo()">保存</a>
+													<a href="javascript:;" class="btn">重置</a>
 												</div>
 
 											</form>
@@ -1256,72 +185,34 @@
 
 									<div id="tab_2-2" class="tab-pane">
 
-										<div style="height: auto;" id="accordion2-2" class="accordion collapse in">
+										<div style="height: auto;" id="accordion2-2" class="accordion in collapse">
 
 											<form action="#">
 
-												<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.</p>
+												<label class="control-label">移动电话</label>
+												<input type="text" placeholder="请输入移动电话" ng-model="loginUserInfo.phone" class="m-wrap span8">
 
-												<br>
+												<label class="control-label">电子信箱</label>
+												<input type="text" placeholder="请输入email" ng-model="loginUserInfo.email" class="m-wrap span8">
 
+												<label class="control-label">兴趣爱好</label>
+												<input type="text" placeholder="游戏，足球" ng-model="loginUserInfo.hobby" class="m-wrap span8">
+
+												<label class="control-label">现居住地</label>
 												<div class="controls">
-
-													<div class="thumbnail" style="width: 291px; height: 170px;">
-
-														<img src="media/image/AAAAAA&amp;text=no+image" alt="">
-
-													</div>
-
+													<input type="text" class="span8 m-wrap" placeholder="现居住地" ng-model="loginUserInfo.place" style="margin: 0 auto;">
+													<p class="help-block"><span class="muted">Start typing to auto complete!. E.g: US</span></p>
 												</div>
 
-												<div class="space10"></div>
+												<label class="control-label">个人简介</label>
+												<textarea class="span8 m-wrap" rows="3" ng-model="loginUserInfo.personalProfile"></textarea>
 
-												<div class="fileupload fileupload-new" data-provides="fileupload">
-
-													<div class="input-append">
-
-														<div class="uneditable-input">
-
-															<i class="icon-file fileupload-exists"></i>
-
-															<span class="fileupload-preview"></span>
-
-														</div>
-
-														<span class="btn btn-file">
-
-																		<span class="fileupload-new">Select file</span>
-
-																		<span class="fileupload-exists">Change</span>
-
-																		<input type="file" class="default">
-
-																		</span>
-
-														<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
-
-													</div>
-
-												</div>
-
-												<div class="clearfix"></div>
-
-												<div class="controls">
-
-													<span class="label label-important">NOTE!</span>
-
-													<span>You can write some information here..</span>
-
-												</div>
-
-												<div class="space10"></div>
+												<label class="control-label">个人博客</label>
+												<input type="text" placeholder="博客地址" ng-model="loginUserInfo.blog" class="m-wrap span8">
 
 												<div class="submit-btn">
-
-													<a href="#" class="btn green">Submit</a>
-
-													<a href="#" class="btn">Cancel</a>
-
+													<a href="#" class="btn green" ng-click="saveDetailsInfo()">保存</a>
+													<a href="#" class="btn">重置</a>
 												</div>
 
 											</form>
@@ -1330,197 +221,78 @@
 
 									</div>
 
-									<div id="tab_3-3" class="tab-pane active">
+									<div id="tab_3-3" class="tab-pane">
 
-										<div style="height: auto;" id="accordion3-3" class="accordion in collapse">
-
-											<form action="#">
-
-												<label class="control-label">原始密码</label>
-
-												<input type="password" class="m-wrap span8">
-
-												<label class="control-label">新密码</label>
-
-												<input type="password" class="m-wrap span8">
-
-												<label class="control-label">确认新密码</label>
-
-												<input type="password" class="m-wrap span8">
-
-												<div class="submit-btn">
-
-													<a href="#" class="btn green">更改密码</a>
-
-													<a href="#" class="btn">重置</a>
-
-												</div>
-
-											</form>
-
+										<div style="height: auto;" id="accordion3-3" class="accordion collapse in">
+											<span class="btn red fileinput-button file-btn avatar-upload">
+												<i class="icon-plus icon-white"></i>
+												<span>添加图片...</span>
+												<input type="file" class="input-file" accept="image/jpg,image.png">
+											</span>
+											<span class="help-inline">{{msg}}</span>
 										</div>
+
+										<div class="row">
+											<div class="col-md-9">
+												<img id="image" alt="">
+											</div>
+											<div class="col-md-3"></div>
+										</div>
+
+										<div class="control-group"></div>
+										<div class="control-group">
+											<p>
+												<a href="javascript:;" ng-click="aleft()" class="btn red" title="向左旋转">
+													<i class="icon-undo"></i> 向左旋转
+												</a>
+												<a href="javascript:;" ng-click="aright()" class="btn red" title="向右旋转">
+													<i class=" icon-repeat"></i> 向右旋转
+												</a>
+
+												<a href="javascript:;" class="btn red" style="margin-left: 200px;" title="移动" ng-click="move()">
+													<i class="icon-move"></i>
+												</a>
+												<a href="javascript:;" class="btn red" ng-click="zoomIn()">
+													<i class="icon-zoom-in" title="放大" ></i>
+												</a>
+												<a href="javascript:;" class="btn red" ng-click="zoomOut()">
+													<i class="icon-zoom-out" title="缩小"></i>
+												</a>
+												<a href="javascript:;" class="btn red" ng-click="reset()">
+													<i class="icon-refresh" title="重置"></i>
+												</a>
+
+												<a href="javascript:;" ng-click="uploadImg()" class="btn red" style="margin-left: 100px;" title="保存">
+													<i class="icon-save"></i> 保存修改
+												</a>
+											</p>
+										</div>
+
 
 									</div>
 
 									<div id="tab_4-4" class="tab-pane">
 
-										<div style="height: auto;" id="accordion4-4" class="accordion collapse in">
+										<div style="height: auto;" id="accordion4-4" class="accordion in collapse">
 
 											<form action="#">
 
-												<div class="profile-settings row-fluid">
-
-													<div class="span9">
-
-														<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus..</p>
-
-													</div>
-
-													<div class="control-group span3">
-
-														<div class="controls">
-
-															<label class="radio">
-
-																<div class="radio"><span><input type="radio" name="optionsRadios1" value="option1"></span></div>
-
-																Yes
-
-															</label>
-
-															<label class="radio">
-
-																<div class="radio"><span class="checked"><input type="radio" name="optionsRadios1" value="option2" checked=""></span></div>
-
-																No
-
-															</label>
-
-														</div>
-
-													</div>
-
-												</div>
-
-												<!--end profile-settings-->
-
-												<div class="profile-settings row-fluid">
-
-													<div class="span9">
-
-														<p>Enim eiusmod high life accusamus terry richardson ad squid wolf moon</p>
-
-													</div>
-
-													<div class="control-group span3">
-
-														<div class="controls">
-
-															<label class="checkbox">
-
-																<div class="checker"><span><input type="checkbox" value=""></span></div> All
-
-															</label>
-
-															<label class="checkbox">
-
-																<div class="checker"><span><input type="checkbox" value=""></span></div> Friends
-
-															</label>
-
-														</div>
-
-													</div>
-
-												</div>
-
-												<!--end profile-settings-->
-
-												<div class="profile-settings row-fluid">
-
-													<div class="span9">
-
-														<p>Pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson</p>
-
-													</div>
-
-													<div class="control-group span3">
-
-														<div class="controls">
-
-															<label class="checkbox">
-
-																<div class="checker"><span><input type="checkbox" value=""></span></div> Yes
-
-															</label>
-
-														</div>
-
-													</div>
-
-												</div>
-
-												<!--end profile-settings-->
-
-												<div class="profile-settings row-fluid">
-
-													<div class="span9">
-
-														<p>Cliche reprehenderit enim eiusmod high life accusamus terry</p>
-
-													</div>
-
-													<div class="control-group span3">
-
-														<div class="controls">
-
-															<label class="checkbox">
-
-																<div class="checker"><span><input type="checkbox" value=""></span></div> Yes
-
-															</label>
-
-														</div>
-
-													</div>
-
-												</div>
-
-												<!--end profile-settings-->
-
-												<div class="profile-settings row-fluid">
-
-													<div class="span9">
-
-														<p>Oiusmod high life accusamus terry richardson ad squid wolf fwopo</p>
-
-													</div>
-
-													<div class="control-group span3">
-
-														<div class="controls">
-
-															<label class="checkbox">
-
-																<div class="checker"><span><input type="checkbox" value=""></span></div> Yes
-
-															</label>
-
-														</div>
-
-													</div>
-
-												</div>
-
-												<!--end profile-settings-->
-
-												<div class="space5"></div>
+												<label class="control-label">原始密码</label>
+												<input type="password" ng-model="oldPsw" class="m-wrap span8">
+												<span class="help-inline">{{oldMsg}}</span>
+
+												<label class="control-label">新密码</label>
+												<input type="password" ng-model="newPsw" class="m-wrap span8">
+
+												<label class="control-label">确认新密码</label>
+												<input type="password" ng-model="repeatPsw" class="m-wrap span8">
+												<span class="help-inline">{{repeatMsg}}</span>
 
 												<div class="submit-btn">
 
-													<a href="#" class="btn green">Save Changes</a>
+													<a href="javascript:;" class="btn green" ng-click="updatePsw()">更改密码</a>
 
-													<a href="#" class="btn">Cancel</a>
+													<a href="javascript:;" class="btn">重置</a>
 
 												</div>
 
@@ -1541,194 +313,6 @@
 					</div>
 
 				</div>
-
-				<!--end tab-pane-->
-
-				<div class="tab-pane" id="tab_1_4">
-
-					<div class="row-fluid add-portfolio">
-
-						<div class="pull-left">
-
-							<span>502 Items sold this week</span>
-
-						</div>
-
-						<div class="pull-left">
-
-							<a href="#" class="btn icn-only green">Add a new Project <i class="m-icon-swapright m-icon-white"></i></a>
-
-						</div>
-
-					</div>
-
-					<!--end add-portfolio-->
-
-					<div class="row-fluid portfolio-block">
-
-						<div class="span5 portfolio-text">
-
-							<img src="media/image/logo_metronic.jpg" alt="">
-
-							<div class="portfolio-text-info">
-
-								<h4>Metronic - Responsive Template</h4>
-
-								<p>Lorem ipsum dolor sit consectetuer adipiscing elit.</p>
-
-							</div>
-
-						</div>
-
-						<div class="span5" style="overflow:hidden;">
-
-							<div class="portfolio-info">
-
-								Today Sold
-
-								<span>187</span>
-
-							</div>
-
-							<div class="portfolio-info">
-
-								Total Sold
-
-								<span>1789</span>
-
-							</div>
-
-							<div class="portfolio-info">
-
-								Earns
-
-								<span>$37.240</span>
-
-							</div>
-
-						</div>
-
-						<div class="span2 portfolio-btn">
-
-							<a href="#" class="btn bigicn-only"><span>Manage</span></a>
-
-						</div>
-
-					</div>
-
-					<!--end row-fluid-->
-
-					<div class="row-fluid portfolio-block">
-
-						<div class="span5 portfolio-text">
-
-							<img src="media/image/logo_azteca.jpg" alt="">
-
-							<div class="portfolio-text-info">
-
-								<h4>Metronic - Responsive Template</h4>
-
-								<p>Lorem ipsum dolor sit consectetuer adipiscing elit.</p>
-
-							</div>
-
-						</div>
-
-						<div class="span5">
-
-							<div class="portfolio-info">
-
-								Today Sold
-
-								<span>24</span>
-
-							</div>
-
-							<div class="portfolio-info">
-
-								Total Sold
-
-								<span>660</span>
-
-							</div>
-
-							<div class="portfolio-info">
-
-								Earns
-
-								<span>$7.060</span>
-
-							</div>
-
-						</div>
-
-						<div class="span2 portfolio-btn">
-
-							<a href="#" class="btn bigicn-only"><span>Manage</span></a>
-
-						</div>
-
-					</div>
-
-					<!--end row-fluid-->
-
-					<div class="row-fluid portfolio-block">
-
-						<div class="span5 portfolio-text">
-
-							<img src="media/image/logo_conquer.jpg" alt="">
-
-							<div class="portfolio-text-info">
-
-								<h4>Metronic - Responsive Template</h4>
-
-								<p>Lorem ipsum dolor sit consectetuer adipiscing elit.</p>
-
-							</div>
-
-						</div>
-
-						<div class="span5" style="overflow:hidden;">
-
-							<div class="portfolio-info">
-
-								Today Sold
-
-								<span>24</span>
-
-							</div>
-
-							<div class="portfolio-info">
-
-								Total Sold
-
-								<span>975</span>
-
-							</div>
-
-							<div class="portfolio-info">
-
-								Earns
-
-								<span>$21.700</span>
-
-							</div>
-
-						</div>
-
-						<div class="span2 portfolio-btn">
-
-							<a href="#" class="btn bigicn-only"><span>Manage</span></a>
-
-						</div>
-
-					</div>
-
-					<!--end row-fluid-->
-
-				</div>
-
-				<!--end tab-pane-->
 
 				<div class="tab-pane row-fluid" id="tab_1_6">
 

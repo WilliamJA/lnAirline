@@ -268,6 +268,9 @@
   margin: 0;
   list-style: none;
 }
+.chzn-container .chzn-results li:hover {
+  background-color: #eee;
+}
 .chzn-container .chzn-results li em {
   background: #feffde;
   font-style: normal;
@@ -287,6 +290,14 @@
 .chzn-container .chzn-results .active-result {
   cursor: pointer;
   display: list-item;
+}
+.chzn-results .active-result .airport-name,.airport-country {
+  position: absolute;
+  left: 100px;
+  color: #6e6e6e;
+}
+.airport-country {
+  left: 340px;
 }
 .chzn-container .chzn-results .highlighted {
   background-color: #326dcc;

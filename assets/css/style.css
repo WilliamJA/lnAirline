@@ -40,6 +40,9 @@ a {
   text-shadow: none !important;
   color: #0d638f;
 }
+input[type=text] {
+  background-color: #fff;
+}
 
 /***
 General backgrounds
@@ -162,7 +165,7 @@ IE8 fix for form input height in fluid rows
 }
 
 /***
-Fix grid offset used for reponsive layout handling(refer app.js=>handleResponsive)
+Fix grid offset used for reponsive layout handling(refer Init.js=>handleResponsive)
 ***/
 .fix-offset {
   margin-left: 0px !important;
@@ -231,6 +234,11 @@ Misc tools
 
 .no-text-shadow {
   text-shadow: none !important;
+  font-size: 14px;
+  margin-top: -8px;
+  padding: 8px 15px;
+  color: #fff;
+  background-color: #e02222;
 }
 
 .no-left-padding {
@@ -310,7 +318,7 @@ Header and header elements.
 }
 
 .header.navbar-fixed-top {
-  z-index: 9995 !important;
+  z-index: 99999 !important;
 }
 
 .header .brand {
@@ -1278,6 +1286,12 @@ Portlets
   background-image:url(../image/portlet-config-icon.png);
   background-repeat: no-repeat;
   width: 12px;
+}
+
+.portlet-title .tools > a.map {
+  background-image:url(../image/map-white.png);
+  background-repeat: no-repeat;
+  width: 14px;
 }
 
 .portlet-title .tools > a.reload {
@@ -2538,8 +2552,8 @@ System feeds
 
 .feeds .col2 {
   float:left;
-  width:75px;
-  margin-left:-75px;
+  width:80px;
+  margin-left:-80px;
 }
 
 .feeds .col1 .cont {

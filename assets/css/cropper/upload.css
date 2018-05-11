@@ -1,0 +1,49 @@
+
+.row {
+    margin-top: 15px;
+    width: 100%;
+    overflow: hidden;
+}
+.row .col-md-9, .col-md-3 {
+    min-height: 1px;
+    padding-right: 15px;
+}
+.row .col-md-9 {
+    width: 70%;
+    height: 380px;
+    float: left;
+    box-shadow: inset 0 0 5px rgba(0,0,0,.25);
+    background-color: #fcfcfc;
+    overflow: hidden;
+    margin-left: 30px;
+}
+.row .col-md-3 {
+    width: 18.25%;
+    float: right;
+    height: 183px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    background-color: #fff;
+    overflow: hidden;
+}
+.row .col-md-3:hover {
+    border-color: #ccf;
+    box-shadow: 0 0 5px rgba(0,0,0,.15);
+}
+.col-md-4 {
+    width: 33.33%;
+    float: left;
+}
+
+
+.col-md-5 {
+    text-align: right;
+    width: 38%;
+    float: left;
+}
+.col-md-6 {
+    float: right;
+}
+.col-md-6 .btn {
+    width: 200px;
+}

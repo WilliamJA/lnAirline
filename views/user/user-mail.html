@@ -1,0 +1,391 @@
+
+
+<h3 class="page-title">个人消息
+    <small>Personal information</small>
+</h3>
+<ul class="breadcrumb">
+    <li>
+        <i class="icon-home"></i>
+        <a href="../index.html">Home</a>
+        <i class="icon-angle-right"></i>
+    </li>
+    <li><a href="#">首页</a></li>
+    <li class="pull-right no-text-shadow">
+        {{utc}} UTC
+    </li>
+</ul>
+
+
+<div class="tab-pane row-fluid active">
+
+    <div class="row-fluid">
+
+        <div class="span12">
+
+            <div class="span2">
+
+                <ul class="ver-inline-menu tabbable margin-bottom-10">
+
+                    <li class="">
+                        <a data-toggle="tab" href="#tab_1">
+                            <i class="icon-briefcase"></i>写信
+                        </a>
+                        <span class="after"></span>
+                    </li>
+
+                    <li class="active" >
+                        <a data-toggle="tab" href="#tab_2">
+                            <i class="icon-group"></i> 收信
+                        </a>
+                    </li>
+
+                    <li>
+                        <a data-toggle="tab" href="#tab_3">
+                            <i class="icon-leaf"></i> 草稿箱
+                        </a>
+                    </li>
+
+                    <li>
+                        <a data-toggle="tab" href="#tab_1">
+                            <i class="icon-info-sign"></i> 已发送
+                        </a>
+                    </li>
+
+                    <li>
+                        <a data-toggle="tab" href="#tab_2">
+                            <i class="icon-tint"></i> 已删除
+                        </a>
+                    </li>
+
+                    <li>
+                        <a data-toggle="tab" href="#tab_3">
+                        <i class="icon-plus"></i> Other Questions
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <div class="span10">
+
+                <div class="tab-content">
+
+                    <div id="tab_1" class="tab-pane">
+                        <div class="tabbable tabbable-custom">
+
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#tab_1_1" data-toggle="tab">普通邮件</a></li>
+                            </ul>
+
+                            <div class="tab-content">
+                                <div class="tab-pane active form" id="tab_1_1">
+
+                                    <p>
+                                        <button type="button" class="btn" ng-click="send()">发送</button>
+                                        <button type="button" class="btn">定时发送</button>
+                                        <button type="button" class="btn">存草稿</button>
+                                    </p>
+
+                                    <form action="#" class="form-horizontal form-row-seperated">
+
+                                        <div class="control-group">
+                                            <label class="control-label" style="width: 50px;">收件人</label>
+                                            <div class="controls" style="margin-left: 60px;">
+                                                <input type="text" class="m-wrap span12" ng-model="mail.recipient">
+                                            </div>
+                                        </div>
+
+                                        <div class="control-group">
+                                            <label class="control-label" style="width: 50px;">主题</label>
+                                            <div class="controls" style="margin-left: 60px;">
+                                                <input type="text" class="m-wrap span12" ng-model="mail.subject">
+                                            </div>
+                                        </div>
+
+                                        <div class="control-group">
+                                            <label class="control-label" style="width: 50px;">正文</label>
+                                            <div class="controls" style="margin-left: 60px;">
+                                                <div id="editor"></div>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div id="tab_2" class="tab-pane active">
+
+                        <table class="table table-condensed table-hover">
+
+                            <thead>
+                            <tr>
+                                <th><input type="checkbox"></th>
+                                <th>发件人</th>
+                                <th class="span7">主题</th>
+                                <th>时间</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr ng-repeat="mail in mailList" style="cursor: pointer" ng-click="open(mail)">
+                                    <td>
+                                        <input type="checkbox">
+                                    </td>
+                                    <td>{{mail.from}}</td>
+                                    <td>{{mail.subject}}</td>
+                                    <td>{{mail.fromDate | date:'yyyy-MM-dd HH:mm'}}</td>
+                                    <td>删除</td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                    <div id="tab_3" class="tab-pane">
+
+                        <div style="height: auto;" id="accordion3" class="accordion collapse in">
+
+                            <div class="accordion-group">
+
+                                <div class="accordion-heading">
+
+                                    <a href="#collapse_3_1" data-parent="#accordion3" data-toggle="collapse" class="accordion-toggle collapsed">
+
+                                        Cliche reprehenderit, enim eiusmod ?
+
+                                    </a>
+
+                                </div>
+
+                                <div class="accordion-body collapse in" id="collapse_3_1">
+
+                                    <div class="accordion-inner">
+
+                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="accordion-group">
+
+                                <div class="accordion-heading">
+
+                                    <a href="#collapse_3_2" data-parent="#accordion3" data-toggle="collapse" class="accordion-toggle collapsed">
+
+                                        Pariatur skateboard dolor brunch ?
+
+                                    </a>
+
+                                </div>
+
+                                <div class="accordion-body collapse" id="collapse_3_2">
+
+                                    <div class="accordion-inner">
+
+                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor.
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="accordion-group">
+
+                                <div class="accordion-heading">
+
+                                    <a href="#collapse_3_3" data-parent="#accordion3" data-toggle="collapse" class="accordion-toggle collapsed">
+
+                                        Food truck quinoa nesciunt laborum eiusmod ?
+
+                                    </a>
+
+                                </div>
+
+                                <div class="accordion-body collapse" id="collapse_3_3">
+
+                                    <div class="accordion-inner">
+
+                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor.
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="accordion-group">
+
+                                <div class="accordion-heading">
+
+                                    <a href="#collapse_3_4" data-parent="#accordion3" data-toggle="collapse" class="accordion-toggle collapsed">
+
+                                        High life accusamus terry richardson ad squid enim eiusmod high ?
+
+                                    </a>
+
+                                </div>
+
+                                <div class="accordion-body collapse" id="collapse_3_4">
+
+                                    <div class="accordion-inner">
+
+                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor.
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="accordion-group">
+
+                                <div class="accordion-heading">
+
+                                    <a href="#collapse_3_5" data-parent="#accordion3" data-toggle="collapse" class="accordion-toggle collapsed">
+
+                                        Reprehenderit enim eiusmod high  eiusmod ?
+
+                                    </a>
+
+                                </div>
+
+                                <div class="accordion-body collapse" id="collapse_3_5">
+
+                                    <div class="accordion-inner">
+
+                                        <p>
+
+                                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor.
+
+                                        </p>
+
+                                        <p>
+
+                                            moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmodBrunch 3 wolf moon tempor
+
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="accordion-group">
+
+                                <div class="accordion-heading">
+
+                                    <a href="#collapse_3_6" data-parent="#accordion3" data-toggle="collapse" class="accordion-toggle collapsed">
+
+                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry ?
+
+                                    </a>
+
+                                </div>
+
+                                <div class="accordion-body collapse" id="collapse_3_6">
+
+                                    <div class="accordion-inner">
+
+                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor.
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="accordion-group">
+
+                                <div class="accordion-heading">
+
+                                    <a href="#collapse_3_7" data-parent="#accordion3" data-toggle="collapse" class="accordion-toggle collapsed">
+
+                                        Reprehenderit enim eiusmod high life accusamus aborum eiusmod ?
+
+                                    </a>
+
+                                </div>
+
+                                <div class="accordion-body collapse" id="collapse_3_7">
+
+                                    <div class="accordion-inner">
+
+                                        <p>
+
+                                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor.
+
+                                        </p>
+
+                                        <p>
+
+                                            moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmodBrunch 3 wolf moon tempor
+
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="accordion-group">
+
+                                <div class="accordion-heading">
+
+                                    <a href="#collapse_3_8" data-parent="#accordion3" data-toggle="collapse" class="accordion-toggle collapsed">
+
+                                        Reprehenderit enim eiusmod high life accusamus terry quinoa nesciunt laborum eiusmod ?
+
+                                    </a>
+
+                                </div>
+
+                                <div class="accordion-body collapse" id="collapse_3_8">
+
+                                    <div class="accordion-inner">
+
+                                        <p>
+
+                                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor.
+
+                                        </p>
+
+                                        <p>
+
+                                            moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmodBrunch 3 wolf moon tempor
+
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!--end span9-->
+
+        </div>
+
+    </div>
+
+</div>

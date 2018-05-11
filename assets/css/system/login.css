@@ -149,3 +149,8 @@ Login page
     font-size: 13px;
   }
 }
+
+.login-msg {
+  margin-top: 15px;
+  color: #fff;
+}
